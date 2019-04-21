@@ -2,9 +2,9 @@ var webpack = require('webpack');
 var path = require('path');
 module.exports = {
     mode: 'development',
-    context: path.join(__dirname,'src'),
+    context: path.join(__dirname,'src', 'js'),
     entry: {
-        notepad : '.\\js\\notepad.js',
+        notepad : './notepad.js',
     },
     output:{
         path: path.join(__dirname,'dist','js'),
@@ -23,6 +23,12 @@ module.exports = {
                 // babel loader contain jsx loader as well
                 loader: 'babel-loader',}
             
+        }, {
+          test: /\.css$/,//$ specifies .css is the end of the file
+            // what directory to include and exclude for loader to work
+            include: path.join(__dirname,'src','css'),
+            exclude: path.join(__dirname,'node_modules'),
+            use:['style-loader', 'css-loader'],
         }]
     },
     devServer: {

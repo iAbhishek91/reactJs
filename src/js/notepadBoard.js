@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDom from 'react-dom';
 import Note from './noteDefaultComponent';
 import data from './data';
 //import createReactClass from 'create-react-class';
@@ -33,7 +32,7 @@ class Board extends React.Component{
                 <div className="board">
                 {
                     data.map((text,i) => {
-                        return(<Note key={i}>{text}</Note>)
+                        return(<Note key={i} buttonId={i+1}>{text}</Note>)
                     })
                 }
                 </div>
